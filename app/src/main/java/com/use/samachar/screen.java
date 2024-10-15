@@ -33,7 +33,9 @@ public class screen extends AppCompatActivity {
 
                 dialog.show();
             }
+
         });
+
 
 
     }
