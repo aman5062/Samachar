@@ -18,7 +18,7 @@
             android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".screen"
+            android:name=".ScreenActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

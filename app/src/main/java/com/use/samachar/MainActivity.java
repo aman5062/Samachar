@@ -1,17 +1,13 @@
+package com.use.samachar;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.use.samachar.Article;
-import com.use.samachar.NewsAdapter;
-import com.use.samachar.NewsDataSource;
-import com.use.samachar.NewsRepository;
-import com.use.samachar.R;
-import com.use.samachar.screen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize the recyclerView
-
-
-        // Initialize the newsAdapter
         newsAdapter = new NewsAdapter(new ArrayList<Article>());
 
-        recyclerView.setAdapter(newsAdapter);
 
         // Hide the action bar
         getSupportActionBar().hide();
@@ -51,13 +42,14 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, screen.class);
+                Intent intent = new Intent(MainActivity.this, ScreenActivity.class);
+                intent.putParcelableArrayListExtra("articles", (ArrayList<? extends Parcelable>) articles);
                 startActivity(intent);
                 finish();
             }
         }, 3500);
     }
-
+    private List<Article> articles = new ArrayList<>();
     private void fetchNews() {
         newsRepository.getTopHeadlines("us", new NewsDataSource.NewsCallback() {
             @Override
@@ -71,9 +63,13 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "Time: " + article.getPublishedAt());
                     Log.d(TAG, "------------------- - - - - - ");
                 }
+                // Store the fetched articles
+
+                MainActivity.this.articles = articles;
+
                 // Update the newsAdapter with the fetched articles
                 newsAdapter.updateData(articles);
-                // TODO: Store these articles or pass them to the next activity
+
             }
 
             @Override
