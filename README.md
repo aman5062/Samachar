@@ -1,6 +1,6 @@
 # Samachar News App
 
-**Samachar** is a mobile news application that brings the latest news updates to users in real-time. The app covers a variety of categories, including politics, sports, entertainment, technology, and more, ensuring users stay informed about current events.
+**Samachar** is a mobile news application that brings latest news updates to users in real-time. The app covers a variety of categories, including politics, sports, entertainment, technology, and more, ensuring users stay informed about current events.
 
 ## Features
 
