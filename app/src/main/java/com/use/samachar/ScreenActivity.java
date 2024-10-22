@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ScreenActivity extends AppCompatActivity {
     ImageView menu_icon;
+    ImageView search_icon;
     Dialog dialog;
     private RecyclerView recyclerView;
     private NewsAdapter newsAdapter;
@@ -29,7 +30,7 @@ public class ScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_screen);
         getSupportActionBar().hide();
         menu_icon = findViewById(R.id.menu_icon);
-
+        search_icon = findViewById(R.id.search_button);
         // Receive the data from MainActivity
         Intent intent = getIntent();
         articles = intent.getParcelableArrayListExtra("articles");
@@ -51,6 +52,13 @@ public class ScreenActivity extends AppCompatActivity {
                 dialog.getWindow().setBackgroundDrawableResource(android.R.drawable.screen_background_light_transparent);
 
                 dialog.show();
+            }
+        });
+        search_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ScreenActivity.this, SearchActivity.class);
+                startActivity(intent);
             }
         });
     }
