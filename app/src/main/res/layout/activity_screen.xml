@@ -24,9 +24,9 @@
             android:text="Samachar"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="100px"
+            android:textSize="40dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/menu_icon"
+            app:layout_constraintStart_toStartOf="@+id/menu_icon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -35,6 +35,15 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:layout_editor_absoluteX="24dp" />
+
+        <ImageView
+            android:id="@+id/search_button"
+            android:layout_width="59dp"
+            android:layout_height="53dp"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/search_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
