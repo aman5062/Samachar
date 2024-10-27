@@ -45,10 +45,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         Glide.with(holder.itemView.getContext())
                 .load(article.getUrlToImage())
                 .into(holder.imageView);
-        holder.itemView.setOnClickListener(v -> {
+        holder.itemView.setOnClickListener(v -> { //addedonclicklistener to the item
 
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(article.getUrl())); // Assuming getUrl() returns the article's URL
+            intent.setData(Uri.parse(article.getUrl()));
             holder.itemView.getContext().startActivity(intent);
         });
 
