@@ -1,4 +1,6 @@
 package com.use.samachar;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +45,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         Glide.with(holder.itemView.getContext())
                 .load(article.getUrlToImage())
                 .into(holder.imageView);
+        holder.itemView.setOnClickListener(v -> { //addedonclicklistener to the item
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(article.getUrl()));
+            holder.itemView.getContext().startActivity(intent);
+        });
+
     }
 
     @Override
