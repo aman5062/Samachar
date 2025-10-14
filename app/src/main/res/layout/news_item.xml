@@ -2,32 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linearLayout"
+    android:background="@drawable/border">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="5dp"
+        android:elevation="50dp"
+        android:radius="25dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="575dp"
             android:scaleType="centerCrop" />
 
-        <TextView
+    </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:fontFamily="@font/abril_fatface"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/description_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:fontFamily="@font/aclonica"
+            android:layout_marginHorizontal="10dp"
+            android:padding="10dp"
             android:textSize="16sp" />
 
-    </LinearLayout>
+
+
 
 </LinearLayout>

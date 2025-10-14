@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.List;
 public class ScreenActivity extends AppCompatActivity {
     ImageView menu_icon;
     ImageView search_icon;
+    TextView settings_text;
     Dialog dialog;
     private RecyclerView recyclerView;
     private NewsAdapter newsAdapter;
@@ -31,6 +33,7 @@ public class ScreenActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         menu_icon = findViewById(R.id.menu_icon);
         search_icon = findViewById(R.id.search_button);
+        settings_text = (TextView) findViewById(@layout.);
         // Receive the data from MainActivity
         Intent intent = getIntent();
         articles = intent.getParcelableArrayListExtra("articles");
@@ -61,5 +64,14 @@ public class ScreenActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        settings_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ScreenActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
